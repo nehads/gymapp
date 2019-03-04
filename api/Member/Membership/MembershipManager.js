@@ -4,18 +4,6 @@ const MSG = require('../../../app/common').MSG;
 
 class MembershipManager{
 
-    // getF(data)
-    // {
-    //      return membershipRepository.getByCredentials(data.Member_ID).then((user) => {
-    //         if(!user)
-    //         return MSG(2).then((err) => {return {"Result": err, "ErrorOccurred" : true}});
-    //         else
-    //         return membershipRepository.generateToken(user).then((token) => {
-    //             return {"Result": token, "ErrorOccurred" : false};
-    //         });
-    // });
-    // }
-
     GetMemberFeeStatus(query)
     {
             return membershipRepository.getMemberFeeStatus(query).then((result) => 

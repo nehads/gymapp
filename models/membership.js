@@ -7,7 +7,14 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV1,
       type: DataTypes.UUID
     },
-    Member_ID: DataTypes.UUID,
+    Member_ID: { 
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        model: 'Members',
+        key:   "Member_ID"
+      }
+    },
     Month: DataTypes.STRING,
     Year: DataTypes.INTEGER,
     Fee_Status: DataTypes.STRING,

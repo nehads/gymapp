@@ -7,7 +7,14 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: DataTypes.UUIDV1,
       type: DataTypes.UUID
     },
-    Admin_ID: DataTypes.UUID,
+    Admin_ID: { 
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        model: 'Admins',
+        key:   'Admin_ID'
+      }
+    },
     Member_Name: DataTypes.STRING,
     Contact_No: DataTypes.STRING,
     Address: DataTypes.STRING,
@@ -23,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Members.belongsTo(models.Admins, {as:'Members', foreignKey: 'Admin_ID', targetKey: 'Admin_ID'});
     Members.hasMany(models.Membership,{as:'Membership',foreignKey: 'Member_ID', sourceKey: 'Member_ID'});
+    Members.hasMany(models.Attendance,{as:'Attendance',foreignKey: 'Member_ID', sourceKey: 'Member_ID', foreignKeyConstraint:true});
   };
   return Members;
 };

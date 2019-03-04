@@ -2,22 +2,7 @@ const db = require('../models/index');
 require("../app/globalValues");
 
 class membershipRepository {
-    // getByCredentials(Member_ID) {
-    //     return db.Membership.findAll({ where: { 'Member_ID': Member_ID } });
-    // }
-
-    // generateToken(userdata) {
-    //     return module.exports.getbyId(userdata.Member_ID).then((user) => {
-    //         if (!user)
-    //             return false;
-    //         else {
-    //             //  delete userdata.dataValues.Password;
-    //             //delete userdata.dataValues.id;
-    //             return userdata;
-    //         }
-    //     });
-    // }
-
+   
     getbyId(data) {
 
         return db.Membership.findOne({ where: { 'Member_ID': data.Member_ID, 'Membership_ID': data.Membership_ID } });
@@ -44,14 +29,9 @@ class membershipRepository {
         return response;
     }
 
-    async getMemberStatus(userQuery) {
-        var query = "SELECT a.*, b.Amount " +
-            " from members as a " +
-            " left OUTER join membership as b on a.Member_ID = b.Member_ID" +
-            " where a.Admin_ID = '" + Admin_ID + "' " +
-            " and b.Status = '" + global.Fee_Status.Unpaid_Status + "' " +
-            " and b.Month = '" + Month + "' ";
-        return db.sequelize.query(query, { type: db.sequelize.QueryTypes.SELECT });
+     getMemberStatus(userQuery) {
+
+        return db.Members.findAll({where: {'Admin_ID': userQuery.Admin_ID, 'Status': userQuery.Status}})
     }
 }
 

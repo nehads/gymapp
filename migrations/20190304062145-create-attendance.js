@@ -1,11 +1,12 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Membership', {
-      Membership_ID: {
+    return queryInterface.createTable('Attendance', {
+      Id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.UUID
+        type: Sequelize.INTEGER
       },
       Member_ID: {
         type: Sequelize.UUID,
@@ -15,16 +16,16 @@ module.exports = {
           key:   "Member_ID"
         }
       },
+      IsPresent: {
+        type: Sequelize.BOOLEAN
+      },
+      Day: {
+        type: Sequelize.INTEGER
+      },
       Month: {
         type: Sequelize.STRING
       },
       Year: {
-        type: Sequelize.INTEGER
-      },
-      Fee_Status: {
-        type: Sequelize.STRING
-      },
-      Amount: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -38,6 +39,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Membership');
+    return queryInterface.dropTable('Attendances');
   }
 };

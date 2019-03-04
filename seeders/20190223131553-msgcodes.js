@@ -16,6 +16,7 @@ module.exports = {
       { id: uuidV1(), Code: 11, Type: "Error", Msg: "Membership/Member id does not exist", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 15, Type: "Error", Msg: "Admin ID does not exists", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 16, Type: "Error", Msg: "No paid users for this Admin", createdAt: new Date(), updatedAt: new Date() },
+      { id: uuidV1(), Code: 17, Type: "Error", Msg: "Corresponding record does not exist", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 28, Type: "Error", Msg: "Incorrect Password", createdAt: new Date(), updatedAt: new Date() },
       ]
       , {}));

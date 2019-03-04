@@ -9,8 +9,8 @@ class memberRepository {
     }
 
     getbyId(data) {
-        var data = db.Members.findOne({ where: { 'Member_ID': data.Member_ID, 'Admin_ID': data.Admin_ID, 'IsDeleted': false} });
-        return data;
+
+        return db.Members.findOne({ where: { 'Member_ID': data.Member_ID, 'Admin_ID': data.Admin_ID, 'IsDeleted': false} });
     }
 
     async registerMember(Contact_No, data) {
