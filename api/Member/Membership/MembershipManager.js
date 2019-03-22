@@ -19,9 +19,9 @@ class MembershipManager{
     {
             return membershipRepository.update(data).then((result) => 
                 {
-                    if(!result)
-                        return MSG(11).then((err) => {return {"Result": err, "ErrorOccurred" : true}});
-                    else
+                    if(result.ErrorOccurred) 
+                        return {"Result": result.Result, "ErrorOccurred" : true};
+                    else 
                         return {"Result": result, "ErrorOccurred" : false};
                 });
     }

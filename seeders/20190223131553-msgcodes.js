@@ -9,6 +9,7 @@ module.exports = {
       { id: uuidV1(), Code: 2, Type: "Error", Msg: "Incorrect UserName or Password", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 3, Type: "Error", Msg: "Member/Admin does not exist.", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 4, Type: "Error", Msg: "Error occured while sending msg", createdAt: new Date(), updatedAt: new Date() },
+      { id: uuidV1(), Code: 5, Type: "Error", Msg: "Amount cannot be null", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 6, Type: "Error", Msg: "Phone Number already exists", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 7, Type: "Error", Msg: "Phone Number Does not exist", createdAt: new Date(), updatedAt: new Date() },
       { id: uuidV1(), Code: 8, Type: "Error", Msg: "Admin ID does not exists", createdAt: new Date(), updatedAt: new Date() },

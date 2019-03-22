@@ -1,8 +1,9 @@
 const db = require('../models/index');
 require("../app/globalValues");
+const MSG = require('../app/common').MSG;
 
 class membershipRepository {
-   
+
     getbyId(data) {
 
         return db.Membership.findOne({ where: { 'Member_ID': data.Member_ID, 'Membership_ID': data.Membership_ID } });
@@ -20,18 +21,21 @@ class membershipRepository {
 
     async update(data) {
 
+        if (data.Amount == null || data.Amount == 0)
+            return MSG(5).then((err) => { return { "Result": err, "ErrorOccurred": true } });
+
         var response = await this.getbyId(data).then((user) => {
             if (!user)
-                return false;
+                return MSG(11).then((err) => { return { "Result": err, "ErrorOccurred": true } });
             else
                 return user.update(data);
         });
         return response;
     }
 
-     getMemberStatus(userQuery) {
+    getMemberStatus(userQuery) {
 
-        return db.Members.findAll({where: {'Admin_ID': userQuery.Admin_ID, 'Status': userQuery.Status}})
+        return db.Members.findAll({ where: { 'Admin_ID': userQuery.Admin_ID, 'Status': userQuery.Status } })
     }
 }
 
